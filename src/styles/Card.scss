@@ -1,0 +1,177 @@
+$mq-desktop: 975px;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 3px 7px 20px 3px #9789cd2b;
+  border-radius: 25px;
+  transition: flex-direction 0.5s ease-in-out;
+
+  @media screen and (min-width: $mq-desktop) {
+    flex-direction: row;
+  }
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 32px 48px;
+  background: linear-gradient(to top, #2e2be9, #7857ff);
+  border-radius: 0 0 25px 25px;
+  @media screen and (min-width: $mq-desktop) {
+    flex-direction: column;
+    width: 50%;
+    border-radius: 25px;
+  }
+
+  .title {
+    font-size: 19px;
+    color: #ccbfff;
+  }
+  .percentage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to top, #2e2be91a 20%, hsla(241, 81%, 54%, 0.6), #4e21ca 90%);
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+
+    & span:first-child {
+      font-size: 52px;
+      font-weight: 800;
+      color: #fff;
+    }
+    & span:last-child {
+      font-size: 16px;
+      color: hslA(241, 100%, 89%, 0.5);
+    }
+  }
+  .result-verdict {
+    font-size: 26px;
+    font-weight: 500;
+    color: #fff;
+  }
+  .result-comment {
+    color: #c8c7ff;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  gap: 20px;
+  padding: 32px;
+  @media screen and (min-width: $mq-desktop) {
+    width: 50%;
+  }
+
+  .title {
+    color: #303b59;
+    font-size: 19px;
+    font-weight: 800;
+  }
+  .categories {
+    width: 100%;
+    & > div {
+      padding: 21px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .category {
+      font-size: 17px;
+      font-weight: 600;
+      color: #303b59;
+      border-radius: 10px;
+      & > div:first-child {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      &.reaction {
+        background-color: #fff6f5;
+        & div:first-child span {
+          color: hsl(0, 100%, 67%);
+        }
+      }
+      &.memory {
+        background-color: hsla(39, 100%, 56%, 0.05);
+        & div:nth-child(1) span {
+          color: hsl(39, 100%, 56%);
+        }
+      }
+      &.verbal {
+        background-color: hsla(166, 100%, 37%, 0.05);
+        & div:nth-child(1) span {
+          color: hsl(166, 100%, 37%);
+        }
+      }
+      &.visual {
+        background-color: hsla(234, 85%, 45%, 0.05);
+        & div:nth-child(1) span {
+          color: hsl(234, 85%, 45%);
+        }
+      }
+      .category-score + span {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.card-btn {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  border: none;
+  padding: 20px;
+  font-size: 19px;
+  font-weight: 700;
+  border-radius: 50px;
+  color: #fff;
+  overflow: hidden;
+  background: linear-gradient(#303b59, #303b59);
+  transition: 0.3s ease-in-out;
+
+  span {
+    position: relative;
+    z-index: 0;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #2e2be9, #7857ff);
+    opacity: 0;
+    transition: 0.2s ease;
+  }
+
+  @media screen and (min-width: $mq-desktop) {
+    &:hover {
+      cursor: pointer;
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
